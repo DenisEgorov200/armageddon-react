@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className="h-screen">
       <Header />
-      <main className="flex justify-center">
+      <main className="flex justify-center items-start">
         <AsteroidList />
         <Cart />
       </main>
