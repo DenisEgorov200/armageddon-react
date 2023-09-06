@@ -4,9 +4,12 @@ export default {
   theme: {
     colors: {
       orange: '#F86600',
-      gray: '#232526',
+      'orange-smooth': 'rgba(248, 102, 0, 0.15)',
+      gray: '#E3E5E5',
+      dark: '#232526',
     },
     fontFamily: {
+      sans: ['Helvetica', 'sans-serif'],
       passion: ['Passion One', 'cursive'],
     },
     extend: {},

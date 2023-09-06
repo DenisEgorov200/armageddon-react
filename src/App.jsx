@@ -1,10 +1,15 @@
 import { Header } from './components/layout/Header.jsx';
+import { AsteroidList } from './components/Asteroid/AsteroidList.jsx';
+import { Cart } from './components/Cart/Cart.jsx';
 
 export const App = () => {
   return (
-    <div>
+    <div className="h-screen">
       <Header />
-      <h1>Hello world</h1>
+      <main className="flex justify-center">
+        <AsteroidList />
+        <Cart />
+      </main>
     </div>
   );
 };
