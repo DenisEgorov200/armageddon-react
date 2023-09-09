@@ -9,37 +9,7 @@ export const AsteroidList = () => {
         </h2>
         <button>в километрах | в лунных орбитах</button>
       </div>
-      <ul>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
-        <li>
-          <AsteroidItem />
-        </li>
+      <ul className="flex flex-col gap-y-6">
         <li>
           <AsteroidItem />
         </li>

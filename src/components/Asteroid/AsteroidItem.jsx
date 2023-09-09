@@ -25,7 +25,7 @@ export const AsteroidItem = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <button className="py-1 px-3 bg-orange-smooth text-orange rounded-2xl text-sm tracking-[1px] font-bold uppercase ease-in duration-300 mr-2.5">
+        <button className="py-1.5 px-3 bg-orange-15 text-orange-100 rounded-2xl text-xs tracking-[1px] font-bold uppercase hover:bg-orange-100 hover:text-white ease-in duration-300 mr-2.5">
           заказать
         </button>
         <div className="flex items-center">

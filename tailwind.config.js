@@ -3,8 +3,11 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
-      orange: '#F86600',
-      'orange-smooth': 'rgba(248, 102, 0, 0.15)',
+      white: '#ffffff',
+      orange: {
+        100: '#F86600',
+        15: '#F8660026',
+      },
       gray: '#E3E5E5',
       dark: '#232526',
     },
