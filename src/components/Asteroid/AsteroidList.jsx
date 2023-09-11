@@ -1,6 +1,6 @@
 import { AsteroidItem } from './AsteroidItem.jsx';
 
-export const AsteroidList = () => {
+export const AsteroidList = ({ asteroids }) => {
   return (
     <div>
       <div className="mb-6">
@@ -10,9 +10,11 @@ export const AsteroidList = () => {
         <button>в километрах | в лунных орбитах</button>
       </div>
       <ul className="flex flex-col gap-y-6">
-        <li>
-          <AsteroidItem />
-        </li>
+        {/*{asteroids.near_earth_objects?.map((asteroid, idx) => (*/}
+        {/*  <li key={idx}>*/}
+        {/*    <AsteroidItem asteroid={asteroid} />*/}
+        {/*  </li>*/}
+        {/*))}*/}
       </ul>
     </div>
   );
