@@ -1,12 +1,12 @@
-export const SwitchButton = ({ activeIndex, items, onClickButton }) => {
+export const SwitchButton = ({ activeItem, items, onClickButton }) => {
   return (
     <button className="relative switch-button">
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <span
-          key={idx}
-          onClick={() => onClickButton(idx)}
-          className={`mr-3 ${activeIndex === idx ? 'font-bold' : 'underline'}`}>
-          {item}
+          key={item.id}
+          onClick={() => onClickButton(item)}
+          className={`mr-3 ${activeItem === item ? 'font-bold' : 'underline'}`}>
+          {item.label}
         </span>
       ))}
     </button>

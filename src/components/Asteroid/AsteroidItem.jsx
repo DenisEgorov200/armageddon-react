@@ -19,7 +19,10 @@ export const AsteroidItem = ({ asteroid, unit }) => {
       </h3>
       <div className="flex items-center mb-4">
         <div className="flex flex-col items-center">
-          <span className="pb-2">{formatDistance(asteroidDate.miss_distance.kilometers)} км</span>
+          {/*<span className="pb-2">{formatDistance(asteroidDate.miss_distance.kilometers)} км</span>*/}
+          <span className="pb-2">
+            {formatDistance(asteroidDate.miss_distance[unit.value])} {unit.unitLabel}
+          </span>
           <svg
             width="96"
             height="6"
@@ -33,7 +36,7 @@ export const AsteroidItem = ({ asteroid, unit }) => {
             />
           </svg>
         </div>
-        <img src="/asteroid.png" alt="asteroid" className="px-2" />
+        <img src="/asteroid.svg" alt="asteroid" className="px-2" />
         <div className="flex flex-col">
           <span className="font-bold underline">{asteroid.name}</span>
           <span className="text-xs">Ø {asteroidMagnitude} м</span>

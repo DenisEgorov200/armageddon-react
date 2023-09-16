@@ -2,13 +2,16 @@ import { AsteroidItem } from './AsteroidItem.jsx';
 import { SwitchButton } from '../ui/SwitchButton/SwitchButton.jsx';
 import { useState } from 'react';
 
-const units = ['в километрах', 'в лунных орбитах'];
+const units = [
+  { id: 0, value: 'kilometers', unitLabel: 'км', label: 'в километрах' },
+  { id: 1, value: 'lunar', unitLabel: 'лунных орбит', label: 'в лунных орбитах' },
+];
 
 export const AsteroidList = ({ asteroids }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeUnit, setActiveUnit] = useState(units[0]);
 
-  const onClickButton = (index) => {
-    setActiveIndex(index);
+  const onClickButton = (unit) => {
+    setActiveUnit(unit);
   };
 
   if (!asteroids) return null;
@@ -27,12 +30,12 @@ export const AsteroidList = ({ asteroids }) => {
         <h2 className="max-w-[400px] font-helvetica text-3xl font-bold mb-2">
           Ближайшие подлёты астероидов
         </h2>
-        <SwitchButton activeIndex={activeIndex} items={units} onClickButton={onClickButton} />
+        <SwitchButton activeItem={activeUnit} items={units} onClickButton={onClickButton} />
       </div>
       <ul className="flex flex-col gap-y-6">
         {allAsteroids.map((asteroid) => (
           <li key={asteroid.id}>
-            <AsteroidItem asteroid={asteroid} unit={activeIndex} />
+            <AsteroidItem asteroid={asteroid} unit={activeUnit} />
           </li>
         ))}
       </ul>

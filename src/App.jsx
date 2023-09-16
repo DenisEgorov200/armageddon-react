@@ -5,7 +5,6 @@ import { formatDate } from './utils/date.js';
 import { Header } from './components/layout/Header.jsx';
 import { AsteroidList } from './components/Asteroid/AsteroidList.jsx';
 import { Cart } from './components/Cart/Cart.jsx';
-import { SwitchButton } from './components/ui/SwitchButton/SwitchButton.jsx';
 
 export const App = () => {
   const [asteroidData, setAsteroidData] = useState([]);
