@@ -1,10 +1,25 @@
-export const AsteroidItem = () => {
+import { formatDistance } from '../../utils/distance.js';
+
+export const AsteroidItem = ({ asteroid }) => {
+  const asteroidDate = asteroid.close_approach_data[0];
+  const isAsteroidDanger = asteroid.is_potentially_hazardous_asteroid;
+  const asteroidMagnitude = asteroid.absolute_magnitude_h;
+
   return (
     <>
-      <h3 className="text-[24px] font-bold mb-2">12 сент 2023</h3>
+      <h3 className="text-[24px] font-bold mb-2">
+        {new Date(asteroidDate.close_approach_date)
+          .toLocaleDateString('ru', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })
+          .replace('г.', '')
+          .replace('.', '')}
+      </h3>
       <div className="flex items-center mb-4">
         <div className="flex flex-col items-center">
-          <span className="pb-2">5 652 475 км</span>
+          <span className="pb-2">{formatDistance(asteroidDate.miss_distance.kilometers)} км</span>
           <svg
             width="96"
             height="6"
@@ -20,18 +35,20 @@ export const AsteroidItem = () => {
         </div>
         <img src="/asteroid.png" alt="asteroid" className="px-2" />
         <div className="flex flex-col">
-          <span className="font-bold underline">2021 FQ</span>
-          <span className="text-xs">Ø 85 м</span>
+          <span className="font-bold underline">{asteroid.name}</span>
+          <span className="text-xs">Ø {asteroidMagnitude} м</span>
         </div>
       </div>
       <div className="flex items-center">
         <button className="py-1.5 px-3 bg-orange-15 text-orange-100 rounded-2xl text-xs tracking-[1px] font-bold uppercase hover:bg-orange-100 hover:text-white ease-in duration-300 mr-2.5">
           заказать
         </button>
-        <div className="flex items-center">
-          <img src="/danger.png" alt="danger" className="mr-1" />
-          <span className="text-gray">Опасен</span>
-        </div>
+        {isAsteroidDanger && (
+          <div className="flex items-center">
+            <img src="/danger.png" alt="danger" className="mr-1" />
+            <span className="text-gray">Опасен</span>
+          </div>
+        )}
       </div>
     </>
   );

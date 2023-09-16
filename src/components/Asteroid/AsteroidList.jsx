@@ -1,6 +1,16 @@
 import { AsteroidItem } from './AsteroidItem.jsx';
 
 export const AsteroidList = ({ asteroids }) => {
+  if (!asteroids) return null;
+
+  const allAsteroids = Object.values(asteroids).flat();
+
+  allAsteroids.sort((a, b) => {
+    const dateA = new Date(a.close_approach_data[0].close_approach_date_full);
+    const dateB = new Date(b.close_approach_data[0].close_approach_date_full);
+    return dateB - dateA;
+  });
+
   return (
     <div>
       <div className="mb-6">
@@ -10,11 +20,11 @@ export const AsteroidList = ({ asteroids }) => {
         <button>в километрах | в лунных орбитах</button>
       </div>
       <ul className="flex flex-col gap-y-6">
-        {/*{asteroids.near_earth_objects?.map((asteroid, idx) => (*/}
-        {/*  <li key={idx}>*/}
-        {/*    <AsteroidItem asteroid={asteroid} />*/}
-        {/*  </li>*/}
-        {/*))}*/}
+        {allAsteroids.map((asteroid) => (
+          <li key={asteroid.id}>
+            <AsteroidItem asteroid={asteroid} />
+          </li>
+        ))}
       </ul>
     </div>
   );
