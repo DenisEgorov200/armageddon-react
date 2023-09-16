@@ -1,6 +1,6 @@
 import { formatDistance } from '../../utils/distance.js';
 
-export const AsteroidItem = ({ asteroid }) => {
+export const AsteroidItem = ({ asteroid, unit }) => {
   const asteroidDate = asteroid.close_approach_data[0];
   const isAsteroidDanger = asteroid.is_potentially_hazardous_asteroid;
   const asteroidMagnitude = asteroid.absolute_magnitude_h;

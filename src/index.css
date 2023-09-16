@@ -34,3 +34,14 @@ body {
     background-image: url('/bottomArrow.svg');
     background-size: cover;
 }
+
+.switch-button span:not(:last-child):after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    width: 1px;
+    height: 15px;
+    background: #ffff;
+    margin-left: 5px;
+}
