@@ -26,6 +26,11 @@ body {
     background: #000;
 }
 
+.background {
+    position: fixed;
+    z-index: -1;
+}
+
 .arrow {
     content: "";
     display: inline-block;

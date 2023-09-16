@@ -52,6 +52,7 @@ export const App = () => {
 
   return (
     <div className="h-screen">
+      <img className="background" src="/background.jpg" alt="backgorund" />
       <Header />
       <main className="flex flex-col justify-start items-center">
         <AsteroidList asteroids={asteroidData.near_earth_objects} />
