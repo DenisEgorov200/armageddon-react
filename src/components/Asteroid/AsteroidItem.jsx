@@ -1,9 +1,24 @@
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext.jsx';
+
+import { AddToCart } from '../AddToCart/AddToCart.jsx';
 import { formatDistance } from '../../utils/distance.js';
 
 export const AsteroidItem = ({ asteroid, unit }) => {
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const isCartItems = cartItems.includes(asteroid);
+
   const asteroidDate = asteroid.close_approach_data[0];
   const isAsteroidDanger = asteroid.is_potentially_hazardous_asteroid;
   const asteroidMagnitude = asteroid.absolute_magnitude_h;
+
+  const handleAddToCart = () => {
+    if (cartItems.includes(asteroid)) {
+      removeFromCart(asteroid.id);
+    } else {
+      addToCart(asteroid);
+    }
+  };
 
   return (
     <>
@@ -43,9 +58,9 @@ export const AsteroidItem = ({ asteroid, unit }) => {
         </div>
       </div>
       <div className="flex items-center">
-        <button className="py-1.5 px-3 bg-orange-15 text-orange-100 rounded-2xl text-xs tracking-[1px] font-bold uppercase hover:bg-orange-100 hover:text-white ease-in duration-300 mr-2.5">
+        <AddToCart className="mr-2.5" onClick={handleAddToCart} isCartItems={isCartItems}>
           заказать
-        </button>
+        </AddToCart>
         {isAsteroidDanger && (
           <div className="flex items-center">
             <img src="/danger.png" alt="danger" className="mr-1" />
