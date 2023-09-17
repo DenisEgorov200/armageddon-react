@@ -29,6 +29,11 @@ body {
 .background {
     position: fixed;
     z-index: -1;
+
+    @media not all and (min-width: 1280px) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 .arrow {
@@ -49,4 +54,15 @@ body {
     height: 15px;
     background: #ffff;
     margin-left: 5px;
+}
+
+.cart {
+    @media not all and (min-width: 1280px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
 }

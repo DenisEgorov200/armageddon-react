@@ -33,7 +33,7 @@ export const AsteroidList = ({ asteroids }) => {
         </h2>
         <SwitchButton activeItem={activeUnit} items={units} onClickButton={onClickButton} />
       </div>
-      <ul className="flex flex-col gap-y-6">
+      <ul className="flex flex-col gap-y-6 max-xl:pl-16 max-xl:pr-6">
         {allAsteroids.map((asteroid) => (
           <li key={asteroid.id}>
             <AsteroidItem asteroid={asteroid} unit={activeUnit} />
