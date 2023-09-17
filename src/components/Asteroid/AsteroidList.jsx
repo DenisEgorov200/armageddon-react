@@ -1,6 +1,7 @@
+import { useState } from 'react';
+
 import { AsteroidItem } from './AsteroidItem.jsx';
 import { SwitchButton } from '../ui/SwitchButton/SwitchButton.jsx';
-import { useState } from 'react';
 
 const units = [
   { id: 0, value: 'kilometers', unitLabel: 'км', label: 'в километрах' },
